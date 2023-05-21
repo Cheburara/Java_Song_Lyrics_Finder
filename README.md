@@ -12,7 +12,7 @@ The following guides illustrate how to use some features concretely:
 * User-Friendly Interface: The application provides an easy-to-use interface that prompts users to enter a song title or lyrics and displays the matching songs in a clear and readable format.
 * Extensible: The app can be further extended to support additional features such as autocomplete suggestions, filtering by genre or artist, or displaying additional information about the songs or artists.
 
-![image.png](./image.png)
+![image-1.png](./image-1.png)
 
 ## Getting started
 
