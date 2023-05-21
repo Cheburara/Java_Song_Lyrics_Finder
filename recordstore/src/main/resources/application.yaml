@@ -1,2 +1,19 @@
 server:
   port: 8888
+
+spring:
+  datasource:
+    username: arroba
+    password:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:men:recordstore
+
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Europa/Tallinn
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
