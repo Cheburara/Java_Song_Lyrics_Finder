@@ -6,13 +6,13 @@ spring:
     username: arroba
     password:
     driverClassName: org.h2.Driver
-    url: jdbc:h2:men:recordstore
+    url: jdbc:h2:mem:aa8082c3-6216-4f4d-9e0a-aac307b521b5
 
   jpa:
     properties:
       hibernate:
         jdbc:
-          time_zone: Europa/Tallinn
+          time_zone: Europe/Tallinn
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
