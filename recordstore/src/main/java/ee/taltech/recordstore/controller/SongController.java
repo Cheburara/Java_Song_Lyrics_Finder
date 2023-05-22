@@ -1,5 +1,6 @@
 package ee.taltech.recordstore.controller;
 
+import ee.taltech.recordstore.repository.SongRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

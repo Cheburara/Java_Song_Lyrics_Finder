@@ -19,7 +19,6 @@ public class Song {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String Title;
-    private Integer releaseYear;
 
     @ManyToOne
     @JoinColumn(name="genre_id")
@@ -28,5 +27,9 @@ public class Song {
     @ManyToOne
     @JoinColumn(name="artist_id")
     private Artist artist;
+
+    @ManyToOne
+    @JoinColumn(name="album_id")
+    private Album album;
 
 }

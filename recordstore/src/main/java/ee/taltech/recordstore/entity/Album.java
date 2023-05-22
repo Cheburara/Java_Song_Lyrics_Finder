@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 @Entity
 @Getter
@@ -19,9 +20,9 @@ public class Album {
     private UUID id;
     private String Title;
 
-    @ManyToOne
-    @JoinColumn(name="artist_id")
-    private Artist artist;
+    @ManyToMany
+    @JoinColumn(name="artist_id.album_id")
+    private List<Artist> artist;
 
     private Integer releaseYear;
 
