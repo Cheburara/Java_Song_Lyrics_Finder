@@ -15,6 +15,14 @@ import java.util.UUID;
 @NoArgsConstructor
 
 public class Song {
+
+    public Song(String Title,Album album, Artist artist, Genre genre ){
+        this.Title = Title;
+        this.album = album;
+        this.artist = artist;
+        this.genre = genre;
+
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

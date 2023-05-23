@@ -15,6 +15,12 @@ import java.util.UUID;
 @NoArgsConstructor
 
 public class Album {
+
+    public Album(String title, Integer releaseYear, Artist artist){
+        this.Title = title;
+        this.releaseYear = releaseYear;
+        this.artist = (List<Artist>) artist;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
