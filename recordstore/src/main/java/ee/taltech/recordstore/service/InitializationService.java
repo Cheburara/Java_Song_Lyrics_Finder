@@ -1,13 +1,7 @@
 package ee.taltech.recordstore.service;
 
-import ee.taltech.recordstore.entity.Album;
-import ee.taltech.recordstore.entity.Artist;
-import ee.taltech.recordstore.entity.Genre;
-import ee.taltech.recordstore.entity.Song;
-import ee.taltech.recordstore.repository.AlbumRepository;
-import ee.taltech.recordstore.repository.ArtistRepository;
-import ee.taltech.recordstore.repository.GenreRepository;
-import ee.taltech.recordstore.repository.SongRepository;
+import ee.taltech.recordstore.entity.*;
+import ee.taltech.recordstore.repository.*;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +17,7 @@ public class InitializationService {
     private final ArtistRepository ArtistRepository;
     private final AlbumRepository AlbumRepository;
     private final SongRepository SongRepository;
+    private final LyricRepository LyricRepository;
 
 
     @PostConstruct
@@ -36,12 +31,24 @@ public class InitializationService {
         ArtistRepository.save(new Artist("Ariana Grande"));
 
         var ladyGaga = ArtistRepository.findArtistByName("Lady Gaga");
+        AlbumRepository.save(new Album("The fame", 2008, ladyGaga));
 
-        var pop =GenreRepository.findGenreByName("pop");
+        var pop = GenreRepository.findGenreByName("pop");
         var fameAlbum = AlbumRepository.findAlbumByArtistAndReleaseYear(ladyGaga, 2008);
         var releaseData = LocalDate.of(2008, 4, 26);
 
-        SongRepository.save(new Song("Just Dance", fameAlbum, ladyGaga, pop));
+//        SongRepository.save(new Song("Just Dance", fameAlbum, ladyGaga, pop));
+//        SongRepository.save(new Song("Paparazzi", fameAlbum, ladyGaga, pop));
+
+        var justDanceSong = SongRepository.save(new Song("Just Dance", fameAlbum, ladyGaga, pop));
+        var paparazziSong = SongRepository.save(new Song("Paparazzi", fameAlbum, ladyGaga, pop));
+
+        LyricRepository.save(new Lyric(justDanceSong, "Sample lyrics for Just Dance"));
+        LyricRepository.save(new Lyric(paparazziSong, "Sample lyrics for Paparazzi"));
+//        LyricRepository.save(new lyric(justDanceSong, "Sample lyrics for Just Dance"));
+//        LyricRepository.save(new Lyric(paparazziSong, "Sample lyrics for Paparazzi"));
+
+
     }
 
 

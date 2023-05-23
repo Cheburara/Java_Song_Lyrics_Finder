@@ -13,11 +13,17 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Lyric {
+
+    public Lyric(Song song, String lyric){
+        this.song = song;
+        this.lyric = lyric;
+//        this.song.setText(lyric);
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     @OneToOne
     @JoinColumn(name="song_id")
     private Song song;
-    private String lyrics;
+    private String lyric;
 }

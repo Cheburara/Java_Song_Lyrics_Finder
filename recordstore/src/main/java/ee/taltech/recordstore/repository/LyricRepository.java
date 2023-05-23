@@ -1,0 +1,16 @@
+package ee.taltech.recordstore.repository;
+
+import ee.taltech.recordstore.entity.Lyric;
+import ee.taltech.recordstore.entity.Song;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.UUID;
+
+@Repository
+
+public interface LyricRepository extends JpaRepository<Lyric, UUID> {
+    List<Lyric> findAllBySong (Song song);
+
+}
