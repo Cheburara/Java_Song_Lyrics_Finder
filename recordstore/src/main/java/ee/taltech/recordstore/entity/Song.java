@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -16,17 +17,18 @@ import java.util.UUID;
 
 public class Song {
 
-    public Song(String Title,Album album, Artist artist, Genre genre ){
-        this.Title = Title;
+    public Song(String title, LocalDate releaseYear, Album album, Artist artist, Genre genre){
+        this.title = title;
+        this.releaseYear = releaseYear;
         this.album = album;
         this.artist = artist;
         this.genre = genre;
-
     }
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String Title;
+    private String title;
+    private LocalDate releaseYear;
 
     @ManyToOne
     @JoinColumn(name="genre_id")

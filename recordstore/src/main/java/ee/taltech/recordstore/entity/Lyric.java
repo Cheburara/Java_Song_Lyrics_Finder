@@ -17,7 +17,7 @@ public class Lyric {
     public Lyric(Song song, String lyric){
         this.song = song;
         this.lyric = lyric;
-//        this.song.setText(lyric);
+//      this.song.setText(lyric);
     }
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

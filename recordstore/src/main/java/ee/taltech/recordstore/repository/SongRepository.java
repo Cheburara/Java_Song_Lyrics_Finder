@@ -1,5 +1,6 @@
 package ee.taltech.recordstore.repository;
 
+import ee.taltech.recordstore.entity.Artist;
 import ee.taltech.recordstore.entity.Genre;
 import ee.taltech.recordstore.entity.Song;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,4 +14,6 @@ import java.util.UUID;
 public interface SongRepository extends JpaRepository<Song, UUID> {
 
   List<Song> findAllByGenre(Genre genre);
+
+  List<Song> findAllByArtistOrderByAlbumTitleAscTitleAsc(Artist artist);
 }

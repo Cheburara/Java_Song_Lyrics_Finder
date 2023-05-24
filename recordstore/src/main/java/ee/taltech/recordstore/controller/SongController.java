@@ -27,4 +27,8 @@ public class SongController {
         }
         return songService.getSongsByGenre(genre);
     }
+    @GetMapping("by-artist")
+    public List<SongDto> getSongByArtist(@RequestParam String artist){
+        return songService.getSongsByArtist(artist);
+    }
 }
