@@ -15,5 +15,7 @@ public interface SongRepository extends JpaRepository<Song, UUID> {
 
   List<Song> findAllByGenre(Genre genre);
 
+  List<Song> findByTitle(Song title);
+
   List<Song> findAllByArtistOrderByAlbumTitleAscTitleAsc(Artist artist);
 }
