@@ -1,8 +1,10 @@
 package ee.taltech.recordstore.mapper;
 
 import ee.taltech.recordstore.dto.ArtistDto;
+import ee.taltech.recordstore.dto.LyricDto;
 import ee.taltech.recordstore.dto.SongDto;
 import ee.taltech.recordstore.entity.Artist;
+import ee.taltech.recordstore.entity.Lyric;
 import ee.taltech.recordstore.entity.Song;
 import org.springframework.stereotype.Component;
 
@@ -37,6 +39,17 @@ public class RecordStoreMapper {
     public ArtistDto mapArtistEntitytoDto(Artist entity){
         var dto = new ArtistDto();
         dto.setName(entity.getName());
+        return dto;
+    }
+
+    public List<LyricDto> mapLyricEntitiesToDtos(List<Lyric> entities){
+        return entities.stream().map(this::mapLyricEntitytoDto).collect(Collectors.toList());
+    }
+
+    public LyricDto mapLyricEntitytoDto(Lyric entity){
+        var dto = new LyricDto();
+        dto.setTitle(entity.getTitle());
+        dto.setLyric(entity.getLyric());
         return dto;
     }
 

@@ -1,5 +1,6 @@
 package ee.taltech.recordstore.controller;
 
+import ee.taltech.recordstore.dto.LyricDto;
 import ee.taltech.recordstore.dto.SongDto;
 import ee.taltech.recordstore.repository.SongRepository;
 import ee.taltech.recordstore.service.SongService;
@@ -31,4 +32,12 @@ public class SongController {
     public List<SongDto> getSongByArtist(@RequestParam String artist){
         return songService.getSongsByArtist(artist);
     }
+
+    @GetMapping("by-lyrics")
+    public List<LyricDto> getSongsByLyrics(@RequestParam (name = "lyric", required = false) String lyric) {
+        if (lyric == null || lyric == ""){
+            return songService.getAllBySongTitle(lyric);
+        }
+        return  songService.getAllBySongTitle(lyric); }
+
 }

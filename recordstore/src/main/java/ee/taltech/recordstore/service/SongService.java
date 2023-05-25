@@ -1,5 +1,6 @@
 package ee.taltech.recordstore.service;
 
+import ee.taltech.recordstore.dto.LyricDto;
 import ee.taltech.recordstore.dto.SongDto;
 import ee.taltech.recordstore.entity.Song;
 import ee.taltech.recordstore.mapper.RecordStoreMapper;
@@ -21,7 +22,6 @@ public class SongService {
 
     private final SongRepository songRepository;
     private final GenreRepository genreRepository;
-
     private  final ArtistRepository artistRepository;
     private final LyricRepository lyricRepository;
     private final RecordStoreMapper mapper;
@@ -47,5 +47,14 @@ public class SongService {
             return Collections.emptyList();
         }
         return mapper.mapSongEntitiesToDtos(songRepository.findAllByArtistOrderByAlbumTitleAscTitleAsc(artistEntity));
+    }
+
+    public List<LyricDto> getAllBySongTitle (String songTitle) {
+        var lyricEntity = lyricRepository.findAllBySongTitle(songTitle);
+        if(lyricEntity == null){
+            System.out.println("Incorrect Title given!");
+            return Collections.emptyList();
+        }
+        return mapper.mapLyricEntitiesToDtos(lyricRepository.findAllBySongTitle(songTitle));
     }
 }
