@@ -40,4 +40,7 @@ public class SongController {
         }
         return  songService.findAllBySongTitle(lyric); }
 
+//    @GetMapping("by-lyrics")
+//    public List<LyricDto> getSongsByLyrics(@RequestParam String lyric) { return  songService.findAllBySongTitle(lyric); }
+
 }
