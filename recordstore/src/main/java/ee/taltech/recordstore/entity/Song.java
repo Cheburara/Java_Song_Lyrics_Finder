@@ -15,14 +15,16 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Song {
+public class
+Song {
 
-    public Song(String title, LocalDate releaseYear, Album album, Artist artist, Genre genre){
+    public Song(String title, LocalDate releaseYear, Album album, Artist artist, Genre genre, Lyric lyric){
         this.title = title;
         this.releaseYear = releaseYear;
         this.album = album;
         this.artist = artist;
         this.genre = genre;
+        this.lyric = lyric;
     }
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -41,6 +43,10 @@ public class Song {
     @ManyToOne
     @JoinColumn(name="album_id")
     private Album album;
+
+    @OneToOne
+    @JoinColumn (name="lyric_id")
+    private Lyric lyric;
 
 
 }

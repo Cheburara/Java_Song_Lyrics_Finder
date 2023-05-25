@@ -10,6 +10,6 @@ import java.util.UUID;
 @Repository
 
 public interface LyricRepository extends JpaRepository<Lyric, UUID> {
-    List<Lyric> findAllBySong (String song);
+    List<Lyric> findAllBySongTitle (String title);
 
 }

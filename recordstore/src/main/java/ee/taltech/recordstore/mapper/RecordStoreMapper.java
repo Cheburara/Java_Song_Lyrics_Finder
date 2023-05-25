@@ -24,7 +24,7 @@ public class RecordStoreMapper {
         dto.setAlbumName(entity.getAlbum().getTitle());
         dto.setArtistName(entity.getArtist().getName());
         dto.setGenre(entity.getGenre().getName());
-        //dto.setLyricText(entity.);
+        dto.setLyricText(entity.getLyric().getLyric());
         return dto;
 
     }

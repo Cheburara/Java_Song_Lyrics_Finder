@@ -51,47 +51,36 @@ public class InitializationService {
         var mutterAlbum = AlbumRepository.findAlbumByArtistAndReleaseYear(rammstein, 2001);
         var reiseAlbum = AlbumRepository.findAlbumByArtistAndReleaseYear(rammstein, 2004);
 
-        var releaseDate = LocalDate.of(2008, 4, 26);
-        SongRepository.save(new Song("Just Dance", releaseDate, fameAlbum, ladyGaga, pop));
-        SongRepository.save(new Song("Paparazzi", releaseDate, fameAlbum, ladyGaga, pop));
-
-        var releaseDate2 = LocalDate.of(2001, 5, 20);
-        SongRepository.save(new Song("Sonne", releaseDate2, mutterAlbum, rammstein, rock));
-        SongRepository.save(new Song("Feuer frei!", releaseDate2,mutterAlbum, rammstein, rock));
-
-        var releaseDate3 = LocalDate.of(2004, 9, 27);
-        SongRepository.save(new Song("Ohne dich!", releaseDate3, reiseAlbum, rammstein, rock));
-        SongRepository.save(new Song("Amour", releaseDate3,reiseAlbum, rammstein, rock));
-
         var justDanceLyrics = "Lyrics for Just Dance";
         var paparazziLyrics = "Lyrics for Paparazzi";
+
         var sonneLyrics = "Lyrics for Sonne";
         var feuerFreiLyrics = "Lyrics for Feuer frei!";
+
         var ohneDichLyrics = "Lyrics for Ohne dich!";
         var amourLyrics = "Lyrics for Amour";
 
+        var lyricJD = LyricRepository.save(new Lyric("Just Dance", justDanceLyrics));
+        var lyricPP = LyricRepository.save(new Lyric("Paparazzi", paparazziLyrics));
 
-//        LyricRepository.save(new Lyric(justDance, "Just Dance", justDanceLyrics));
-//        LyricRepository.save(new Lyric(paparazzi, "Paparazzi", paparazziLyrics));
-//        LyricRepository.save(new Lyric(sonne, "Sonne", sonneLyrics));
-//        LyricRepository.save(new Lyric(feuerFrei, "Feuer frei!", feuerFreiLyrics));
-//        LyricRepository.save(new Lyric(ohneDich, "Ohne dich!", ohneDichLyrics));
-//        LyricRepository.save(new Lyric(amour, "Amour", amourLyrics));
+        var lyricSO = LyricRepository.save(new Lyric("Sonne", sonneLyrics));
+        var lyricFF = LyricRepository.save(new Lyric("Feuer frei!", feuerFreiLyrics));
 
-//        LyricRepository.save(new Lyric("Just Dance","text"));
-//        Song justDance = SongRepository.findByTitle("Just Dance");
-//        Song paparazzi = SongRepository.findByTitle("Paparazzi");
-//
-//        // Save the lyrics with the corresponding songs
-//        LyricRepository.save(new Lyric(justDance, "Lyrics for Just Dance"));
-//        LyricRepository.save(new Lyric(paparazzi, "Lyrics for Paparazzi"));
+        var lyricOD = LyricRepository.save(new Lyric("Ohne dich!", ohneDichLyrics));
+        var lyricAM = LyricRepository.save(new Lyric("Feuer frei!", amourLyrics));
 
+        var releaseDate = LocalDate.of(2008, 4, 26);
+        SongRepository.save(new Song("Just Dance", releaseDate, fameAlbum, ladyGaga, pop,lyricJD ));
+        SongRepository.save(new Song("Paparazzi", releaseDate, fameAlbum, ladyGaga, pop,lyricPP));
 
-//        var justDanceSong = SongRepository.save(new Song("Just Dance", releaseDate, fameAlbum, ladyGaga, pop));
-//        var paparazziSong = SongRepository.save(new Song("Paparazzi", releaseDate, fameAlbum, ladyGaga, pop));
-//
-//        LyricRepository.save(new Lyric(justDanceSong, "Sample lyrics for Just Dance"));
-//        LyricRepository.save(new Lyric(paparazziSong, "Sample lyrics for Paparazzi"));
+        var releaseDate2 = LocalDate.of(2001, 5, 20);
+        SongRepository.save(new Song("Sonne", releaseDate2, mutterAlbum, rammstein, rock, lyricSO));
+        SongRepository.save(new Song("Feuer frei!", releaseDate2,mutterAlbum, rammstein, rock, lyricFF));
+
+        var releaseDate3 = LocalDate.of(2004, 9, 27);
+        SongRepository.save(new Song("Ohne dich!", releaseDate3, reiseAlbum, rammstein, rock, lyricOD));
+        SongRepository.save(new Song("Amour", releaseDate3,reiseAlbum, rammstein, rock, lyricAM));
+
 
     }
 

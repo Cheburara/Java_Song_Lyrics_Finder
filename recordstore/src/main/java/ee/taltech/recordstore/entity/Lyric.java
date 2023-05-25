@@ -16,8 +16,7 @@ public class Lyric {
 
 
 
-    public Lyric(Song song, String title, String lyric) {
-        this.song = song;
+    public Lyric(String title, String lyric) {
         this.title = title;
         this.lyric = lyric;
     }
