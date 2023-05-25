@@ -49,12 +49,12 @@ public class SongService {
         return mapper.mapSongEntitiesToDtos(songRepository.findAllByArtistOrderByAlbumTitleAscTitleAsc(artistEntity));
     }
 
-    public List<LyricDto> getAllBySongTitle (String songTitle) {
-        var lyricEntity = lyricRepository.findAllBySongTitle(songTitle);
+    public List<LyricDto> findAllBySongTitle (String title) {
+        var lyricEntity = lyricRepository.findAllBySongTitle(title);
         if(lyricEntity == null){
             System.out.println("Incorrect Title given!");
             return Collections.emptyList();
         }
-        return mapper.mapLyricEntitiesToDtos(lyricRepository.findAllBySongTitle(songTitle));
+        return mapper.mapLyricEntitiesToDtos(lyricRepository.findAllBySongTitle(title));
     }
 }

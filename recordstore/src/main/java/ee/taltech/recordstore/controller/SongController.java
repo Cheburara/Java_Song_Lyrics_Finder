@@ -36,8 +36,8 @@ public class SongController {
     @GetMapping("by-lyrics")
     public List<LyricDto> getSongsByLyrics(@RequestParam (name = "lyric", required = false) String lyric) {
         if (lyric == null || lyric == ""){
-            return songService.getAllBySongTitle(lyric);
+            return songService.findAllBySongTitle(lyric);
         }
-        return  songService.getAllBySongTitle(lyric); }
+        return  songService.findAllBySongTitle(lyric); }
 
 }

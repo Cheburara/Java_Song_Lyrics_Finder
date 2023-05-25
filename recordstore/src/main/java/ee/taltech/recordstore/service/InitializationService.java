@@ -23,7 +23,7 @@ public class InitializationService {
     @PostConstruct
     private void initAppData() {
 
-        GenreRepository.save(new Genre("techno"));
+        GenreRepository.save(new Genre("classic"));
         GenreRepository.save(new Genre("pop"));
         GenreRepository.save(new Genre("punk"));
         GenreRepository.save(new Genre("rock"));
@@ -32,10 +32,13 @@ public class InitializationService {
         ArtistRepository.save(new Artist("Korol I Shut"));
         ArtistRepository.save(new Artist("Ariana Grande"));
         ArtistRepository.save(new Artist("Rammstein"));
+        ArtistRepository.save(new Artist("Nicollo Paganini"));
 
         var ladyGaga = ArtistRepository.findArtistByName("Lady Gaga");
         var rammstein = ArtistRepository.findArtistByName("Rammstein");
         var arianaGrande = ArtistRepository.findArtistByName("Ariana Grande");
+        var nicolloPaganini = ArtistRepository.findArtistByName("Nicollo Paganini");
+
 
         AlbumRepository.save(new Album("The fame", 2008, ladyGaga));
 
@@ -44,12 +47,17 @@ public class InitializationService {
 
         AlbumRepository.save(new Album("Sweetener", 2018, arianaGrande));
 
+        AlbumRepository.save(new Album("Capricci 24", 1802, nicolloPaganini));
+
         var pop = GenreRepository.findGenreByName("pop");
         var fameAlbum = AlbumRepository.findAlbumByArtistAndReleaseYear(ladyGaga, 2008);
 
         var rock= GenreRepository.findGenreByName("rock");
         var mutterAlbum = AlbumRepository.findAlbumByArtistAndReleaseYear(rammstein, 2001);
         var reiseAlbum = AlbumRepository.findAlbumByArtistAndReleaseYear(rammstein, 2004);
+
+        var classic = GenreRepository.findGenreByName("classic");
+        var capricciAlbum = AlbumRepository.findAlbumByArtistAndReleaseYear( nicolloPaganini, 1802);
 
         var justDanceLyrics = "Lyrics for Just Dance";
         var paparazziLyrics = "Lyrics for Paparazzi";
@@ -60,6 +68,8 @@ public class InitializationService {
         var ohneDichLyrics = "Lyrics for Ohne dich!";
         var amourLyrics = "Lyrics for Amour";
 
+        var noneLyrics = "none";
+
         var lyricJD = LyricRepository.save(new Lyric("Just Dance", justDanceLyrics));
         var lyricPP = LyricRepository.save(new Lyric("Paparazzi", paparazziLyrics));
 
@@ -68,6 +78,8 @@ public class InitializationService {
 
         var lyricOD = LyricRepository.save(new Lyric("Ohne dich!", ohneDichLyrics));
         var lyricAM = LyricRepository.save(new Lyric("Feuer frei!", amourLyrics));
+
+        var lyricNP = LyricRepository.save(new Lyric("Capricci 24", noneLyrics));
 
         var releaseDate = LocalDate.of(2008, 4, 26);
         SongRepository.save(new Song("Just Dance", releaseDate, fameAlbum, ladyGaga, pop,lyricJD ));
@@ -80,6 +92,9 @@ public class InitializationService {
         var releaseDate3 = LocalDate.of(2004, 9, 27);
         SongRepository.save(new Song("Ohne dich!", releaseDate3, reiseAlbum, rammstein, rock, lyricOD));
         SongRepository.save(new Song("Amour", releaseDate3,reiseAlbum, rammstein, rock, lyricAM));
+
+        var releaseDate4 = LocalDate.of(1802, 8, 14);
+        SongRepository.save(new Song("Capricci 24", releaseDate4, capricciAlbum, nicolloPaganini, classic, lyricNP));
 
 
     }

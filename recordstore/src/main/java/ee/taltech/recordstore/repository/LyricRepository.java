@@ -12,4 +12,6 @@ import java.util.UUID;
 public interface LyricRepository extends JpaRepository<Lyric, UUID> {
     List<Lyric> findAllBySongTitle (String title);
 
+    List<Lyric> findAllByLyric (String lyric);
+
 }
